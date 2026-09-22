@@ -1,3 +1,9 @@
 /client/node_modules
 /server/node_modules
 /server/logs
+.env
+client/.env
+server/.env
+server/uploads/*
+!server/uploads/.gitkeep
+dump.rdb

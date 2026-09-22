@@ -12,7 +12,7 @@ const {redisClient} = require('../controllers/roomController')
 
 const app = express();
 beforeAll(async () => {
-    const mongoDBUrl = "mongodb+srv://chandrasaiteja0804:Saiteja2004@cluster0.rigxvju.mongodb.net/";
+    const mongoDBUrl = process.env.MONGO_URL || "mongodb://localhost:27017/learnen_test";
 
     await mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 }, 30000); 

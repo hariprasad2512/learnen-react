@@ -1,4 +1,5 @@
 const { mongoose, set } = require('mongoose');
+require('dotenv').config();
 const Room = require('../models/RoomModel');
 const User = require('../models/UserModel');
 const Report = require('../models/ReportModel');
@@ -7,10 +8,10 @@ const {createClient} = require('redis');
 
 
 const redisClient = createClient({
-    password: 'lkpFKwAQQEMUQDCP2aJt5UDoqBl9euRA',
+    password: process.env.REDIS_PASSWORD || undefined,
     socket: {
-        host: 'redis-13346.c9.us-east-1-4.ec2.redns.redis-cloud.com',
-        port: 13346
+        host: process.env.REDIS_HOST || 'localhost',
+        port: process.env.REDIS_PORT ? Number(process.env.REDIS_PORT) : 6379
     }
 });
 
